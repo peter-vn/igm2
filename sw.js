@@ -1,6 +1,6 @@
 // Offline shell for Idle Guild Master.
 // index.html: network first (updates arrive at once), cache when offline. Hashed assets (data-*.json, img/sprites-*): cache first, they never change.
-const C = "igm-c2-c672d95f-b28a0f", ASSETS = ["data-c672d95f.json", "img/sprites-5b028ec0.json", "img/sprites-bdb3dfd5.wasm"];
+const C = "igm-c2-c672d95f-f2581d", ASSETS = ["data-c672d95f.json", "img/sprites-5b028ec0.json", "img/sprites-bdb3dfd5.wasm"];
 const KEY = (r) => (r.mode === "navigate" ? "./index.html" : r);
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(C).then((c) => c.addAll(["./index.html", "./manifest.webmanifest", "./icon-192.png", ...ASSETS.map((a) => "./" + a)]).catch(() => {})).then(() => self.skipWaiting()));
